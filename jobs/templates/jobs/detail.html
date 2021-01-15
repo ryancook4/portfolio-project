@@ -3,46 +3,109 @@
 
 <main role="main">
   {% load static %}
-
   <section class="jumbotron text-center">
     <div class="container">
       <br>
       <h2> {{ job.title }} </h2>
       <br>
       <img src="{{ job.image.url }}" height=300> </img>
-      <br> <br> <br>
-      <ul>
-        <h6 class="text-left"> <b>{{ job.month_completed }}</b></h6>
-        <p class="text-left"> <i>{{ job.extracurricular_or_class }}</i></p>
-        <li class="text-left" style="list-style-type: square;"> {{ job.summary }} </li>
-      </ul>
+      <br> <br>
+      <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#takeaways">Takeaways</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content card-body">
+            <div id="about" class="tab-pane active">
+              <ul>
+                <h6 class="text-left"> <b>{{ job.month_completed }}</b></h6>
+                <p class="text-left"> <i>{{ job.extracurricular_or_class }}</i></p>
+                <p class="text-left"> {{ job.summary }} </p>
+                <p class="text-left"> <b>Skills: </b> {{ job.skill1 }} 
+                  {% if job.skill2 %}
+                  ,  {{ job.skill2 }}
+                  {% endif %}
+                  {% if job.skill3 %}
+                  ,  {{ job.skill3 }}
+                  {% endif %}
+                </p>
+              </ul>
+            </div>
+            <div id="takeaways" class="tab-pane">
+              <ul>
+                {% if job.best_accuracy %}
+                  <p class="text-left"> <b> Best Accuracy</b>:  {{ job.best_accuracy }}</p>
+                {% endif %}
+                <p class="text-left"> <i>{{ job.takeaway1 }}</i></p>
+                {% if job.takeaway2 %}
+                <p class="text-left"> <i>{{ job.takeaway2 }}</i></p>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+      </div>
     </div>
   </section>
 
+  <div class="btn-group-justified text-center">
+    <a href="{% url 'detail' prev %}" class="btn btn-outline-secondary my-2">Previous</a>
+    <a href="{% url 'home' %}#jobs" class="btn btn-primary my-2">Home</a>
+    <a href="{% url 'detail' next %}" class="btn btn-outline-secondary my-2">Next</a>
+  </div>
+  <br>
+
   <div class="album py-5 bg-light">
     <div class="container">
-      <h3>Related Links</h3>
+      <h4>Related Links</h4>
+      <br>
 
       <div class="row">
-        <div class="col-md-4">
-          <a href="{% url 'detail' job.id %}" style="text-decoration:none; color: #000000">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{ job.image.url }}"></img>
-              <div class="card-body">
-                <h5 class="card-title"> {{ job.title }} </h5>
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="{{ job.related_link1 }}" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{{ job.related_img1.url }}"></img>
+              <p></p>
+              <h5 class="card-title">{{ job.related_title1 }}</h5>
+            </div>
           </a>
-          <p class="card-text"> {{ job.month_completed }} </p>
+          </div>
         </div>
+        {% if job.related_img2 %}
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="{{ job.related_link2 }}" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{{ job.related_img2.url }}"></img>
+              <p></p>
+              <h5 class="card-title">{{ job.related_title2 }}</h5>
+            </div>
+          </a>
+          </div>
+        </div>
+        {% endif %}
+        {% if job.related_img3 %}
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="{{ job.related_link3 }}" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{{ job.related_img3.url }}"></img>
+              <p></p>
+              <h5 class="card-title">{{ job.related_title3 }}</h5>
+            </div>
+          </a>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
-
-
-
-  <div class="col text-center">
-    <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>
-  </div>
 </main>
 <br>
-
 {% endblock %}

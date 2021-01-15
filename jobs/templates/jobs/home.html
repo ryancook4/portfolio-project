@@ -14,14 +14,14 @@
       <p class="lead text-muted">Hi! My name is Ryan, and I am a senior Business Analytics major at the University of
         Notre Dame </p>
       <div class="btn-group-justified">
-        <a href="https://www.linkedin.com/in/ryan-cook-a85602183/" class="btn btn-secondary my-2">LinkedIn</a>
-        <a href="https://github.com/ryancook4" class="btn btn-dark my-2">GitHub</a>
-        <a href="mailto:rcook4@nd.edu" class="btn btn-primary my-2">Email Me</a>
+        <a href="https://www.linkedin.com/in/ryan-cook-a85602183/" class="btn btn-lg btn-secondary my-2">LinkedIn</a>
+        <a href="https://github.com/ryancook4" class="btn btn-lg btn-dark my-2">GitHub</a>
+        <a href="mailto:rcook4@nd.edu" class="btn btn-lg btn-primary my-2">Email Me</a>
       </div> 
     </div>
   </section>
 
-  <br><br>
+  <br>
   <div id="jobs">
     <br>
     <div class="album py-5 bg-light">
@@ -31,11 +31,10 @@
 
         <div class="row">
           {% for job in jobs.all %}
-
           <div class="col-md-4">
             <a href="{% url 'detail' job.id %}" style="text-decoration:none; color: #000000">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ job.image.url }}"></img>
+                <img class="card-img-top" src="{{ job.image.url }}" style="max-width: 300; min-width: 250;"></img>
                 <div class="card-body">
                   <h5 class="card-title"> {{ job.title }} </h5>
             </a>
