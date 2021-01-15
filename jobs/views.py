@@ -9,5 +9,16 @@ def home(request):
 
 def detail(request, job_id):
     job_detail = get_object_or_404(Job, pk=job_id)
-    return render(request, 'jobs/detail.html', {'job': job_detail})
+    prev_element = job_detail.pk - 1
+    next_element = job_detail.pk + 1
+
+    # make sure next and prev aren't out of bounds
+    if prev_element < Job.objects.all().order_by("id")[0].pk:
+        prev_element = Job.objects.all().order_by("id")[0].pk
+    
+    if next_element > Job.objects.all().order_by("-id")[0].pk:
+        next_element = Job.objects.all().order_by("-id")[0].pk
+
+    return render(request, 'jobs/detail.html', {'job': job_detail, 
+    'prev': prev_element, 'next': next_element})
 

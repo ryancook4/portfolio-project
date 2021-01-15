@@ -7,10 +7,11 @@ class Job(models.Model):
 
     month_completed = models.CharField(max_length=50, blank=True)
 
-    skill_types = [('r', 'R'), ('python', 'Python'), ('scraping', 'Web Scraping'),
-     ('django', 'Django'), ('rmd', 'Markdown'), ('tableau','Tableau')]
+    skill_types = [('R', 'r'), ('Python', 'python'), ('Web Scraping', 'scraping'),
+     ('Django', 'django'), ('Markdown', 'rmd'), ('Tableau','tableau'), ('Machine Learning', 'machine learning'),]
     skill1 = models.CharField(max_length = 20, blank=True, choices=skill_types)
     skill2 = models.CharField(max_length = 20, blank=True, choices=skill_types)
+    skill3 = models.CharField(max_length = 20, blank=True, choices=skill_types)
 
     extracurricular_or_class = models.CharField(max_length=50, blank=True)
 
@@ -20,11 +21,18 @@ class Job(models.Model):
 
     related_title1 = models.CharField(max_length=200, blank=True)
     related_title2 = models.CharField(max_length=200, blank=True)
+    related_title3 = models.CharField(max_length=200, blank=True)
     related_link1 = models.URLField(max_length=200, blank=True)
     related_link2 = models.URLField(max_length=200, blank=True)
+    related_link3 = models.URLField(max_length=200, blank=True)
     related_img1 = models.ImageField(upload_to='images/', blank=True)
     related_img2 = models.ImageField(upload_to='images/', blank=True)
+    related_img3 = models.ImageField(upload_to='images/', blank=True)
 
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        # order on primary key to make sure it's unique
+        ordering = ('pk', 'title')
