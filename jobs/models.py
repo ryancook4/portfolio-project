@@ -14,11 +14,16 @@ class Job(models.Model):
 
     extracurricular_or_class = models.CharField(max_length=50, blank=True)
 
+    best_accuracy = models.FloatField(max_length=5, null=True, blank=True)
     takeaway1 = models.CharField(max_length=200, blank=True)
     takeaway2 = models.CharField(max_length=200, blank=True)
 
+    related_title1 = models.CharField(max_length=200, blank=True)
+    related_title2 = models.CharField(max_length=200, blank=True)
     related_link1 = models.URLField(max_length=200, blank=True)
     related_link2 = models.URLField(max_length=200, blank=True)
+    related_img1 = models.ImageField(upload_to='images/', blank=True)
+    related_img2 = models.ImageField(upload_to='images/', blank=True)
 
 
     def __str__(self):
