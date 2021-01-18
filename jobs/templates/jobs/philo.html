@@ -1,0 +1,96 @@
+{% extends 'jobs/base.html' %}
+{% block 'body' %}
+
+<main role="main">
+    {% load static %}
+    <section class="jumbotron text-center">
+        <div class="container">
+        <br>
+        <h2>Philosophy Involvement at ND</h2>
+        <br>
+        <img src="{% static 'CTY.png' %}" height=300> </img>
+        <br> <br>
+      <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#ggl">God and the Good Life</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#goodclass">The Good Class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#minor">Philosophy Minor</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content card-body">
+            <div id="ggl" class="tab-pane active">
+              <ul>
+                <h6 class="text-left"> <b>Fellow/Co-Chair</b></h6>
+                <p class="text-left"> Involvement in the class and becoming TA, responsibilities;  Working for several year, logistics/party planning, building community </p>
+              </ul>
+            </div>
+            <div id="goodclass" class="tab-pane">
+                <ul>
+                    <h6 class="text-left"> <b>Student/Speaker</b></h6>
+                    <p class="text-left"> Class and experience, speaking at Ignatius </p>
+                  </ul>
+                  <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSIHSCleveland%2Fposts%2F2371830426258711&width=500&show_text=true&height=866&appId" width="500" height="866" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <div id="minor" class="tab-pane">
+                <ul>
+                    <h6 class="text-left"> <b>Student</b></h6>
+                    <p class="text-left"> <i> GGL, Philosophy as a Way of Life, History of Modern Philosophy, Ancient and Medieval, Philosophy and Film</i></p>
+                    <p class="text-left"> Enjoyed time in the department; papers can be found </p>
+                  </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <h4>Related Links</h4>
+      <br>
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="https://godandgoodlife.nd.edu/" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{% static 'GGL.png' %}"></img>
+              <p></p>
+              <h5 class="card-title">God and the Good Life</h5>
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="https://www.vulture.com/2019/11/the-good-place-college-class-mike-schur.html" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{% static 'GoodClassVulture.png' %}"></img>
+              <p></p>
+              <h5 class="card-title">The Good Class</h5>
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+          <div class="card">
+            <a href="https://philife.nd.edu/news-blog/blog/how-saint-ignatius-high-schools-the-good-lecture-came-into-being/" style="text-decoration:none; color: #000000">
+            <div class="card-body">
+              <img class="card-img-top" src="{% static 'GoodLectureBlog.png' %}"></img>
+              <p></p>
+              <h5 class="card-title">The Good Lecture</h5>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+</main>
+{% endblock %}

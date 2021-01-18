@@ -12,6 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', jobs.views.home, name='home'),
     path('jobs/<int:job_id>', jobs.views.detail, name='detail'),
+    path('jobs/philo', jobs.views.philo, name='philo'),
     url(r'^resume', jobs.views.resume, name='resume'),
 ] 
 
