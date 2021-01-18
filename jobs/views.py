@@ -22,3 +22,17 @@ def detail(request, job_id):
     return render(request, 'jobs/detail.html', {'job': job_detail, 
     'prev': prev_element, 'next': next_element})
 
+
+
+
+from django.shortcuts import render
+from django.http import FileResponse, Http404
+def resume(request):
+    try:
+        return FileResponse(open('static/RyanACookResume1-16-21.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404('not found')
+
+
+
+
