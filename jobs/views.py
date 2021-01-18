@@ -23,13 +23,17 @@ def detail(request, job_id):
     'prev': prev_element, 'next': next_element})
 
 
+def philo(request):
+    return render(request, 'jobs/philo.html')
+
+
 
 
 from django.shortcuts import render
 from django.http import FileResponse, Http404
 def resume(request):
     try:
-        return FileResponse(open('static/RyanACookResume1-16-21.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('jobs/static/RyanACookResume1-16-21.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 

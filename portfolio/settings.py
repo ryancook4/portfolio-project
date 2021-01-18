@@ -152,7 +152,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'jobs/static'
+
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
