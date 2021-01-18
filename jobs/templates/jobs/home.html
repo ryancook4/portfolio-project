@@ -7,13 +7,16 @@
   <section class="jumbotron text-center">
     <div class="container">
       <br>
+      <a href="{% url 'home' %}#bio"  style="text-decoration:none; color: #000000">
       <h1>Ryan Cook</h1>
       <br>
       <img src="{% static 'DiningRoomHeadshot.png' %}" height=250> </img>
+      </a>
       <br> <br>
       <p class="lead text-muted">Hi! My name is Ryan, and I am a senior Business Analytics major at the University of
-        Notre Dame </p>
+        Notre Dame and an incoming Cybersecurity Staff member at EY</p>
       <div class="btn-group-justified">
+        <input type="button" class="btn btn-lg btn-success my-2" value="Resume" onclick="window.open('resume')">
         <a href="https://www.linkedin.com/in/ryan-cook-a85602183/" class="btn btn-lg btn-secondary my-2">LinkedIn</a>
         <a href="https://github.com/ryancook4" class="btn btn-lg btn-dark my-2">GitHub</a>
         <a href="mailto:rcook4@nd.edu" class="btn btn-lg btn-primary my-2">Email Me</a>
@@ -21,8 +24,8 @@
     </div>
   </section>
 
-  <br>
-  <div id="jobs">
+  <br> <br> <br>
+  <section id="jobs">
     <br>
     <div class="album py-5 bg-light">
       <div class="container">
@@ -44,8 +47,97 @@
       </div>
       {% endfor %}
     </div>
+  </section>
+
+  <br> <br> <br> <br> <br>
+  <section id="bio" class="jumbotron text-left">
+    <div class="container">
+      <h3>About Ryan</h3>
+      <br>
+      <h6>Bio</h6>
+      <img src="{% static 'FisherHall.png' %}" height=250> </img>
+      <br> <br>
+      <h6>Interests</h6>
+      <br> <br>
+      <h6>Days Until Fisher Regatta</h6>  
+      
+      <h5 id="countdown" class="text-center"></h5> 
+        <script>  
+        // Set the date we're counting down to  
+        var countDownDate = new Date("May 8, 2021 11:00:00").getTime(); 
+          
+        // Update the count down every 1 second 
+        var x = setInterval(function() {  
+          
+          // Get today's date and time  
+          var now = new Date().getTime(); 
+              
+          // Find the distance between now and the count down date  
+          var distance = countDownDate - now; 
+              
+          // Time calculations for days, hours, minutes and seconds 
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));  
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);  
+              
+          // Output the result in an element with id="countdown" 
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "  
+          + minutes + "m " + seconds + "s ";  
+              
+          // If the count down is over, write some text   
+          if (distance < 0) { 
+            clearInterval(x); 
+            document.getElementById("countdown").innerHTML = "EXPIRED";  
+          } 
+        }, 1000); 
+        </script> 
+
+
+
+      <br> <br>
+      <h6>Resume</h6>
+      <div style="text-align:center;">
+      <embed src="{% url 'resume' %}'#toolbar=0&navpanes=0&scrollbar=0'" style="width:718px; height:350px;" frameborder="0">
+      </embed>
+      <input type="button" class="btn btn-sm btn-outline-success my-2" value="Download Resume" onclick="window.open('resume')">
+      </div>
+    </div>
+
+  
+  <br> <br> <br> <br>
+  <div style="text-align:center;">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="..." alt="Football">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Fisher Hall">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="God and the Good Life">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
   </div>
 
+</section>
 </main>
+
+
 
 {% endblock %}
