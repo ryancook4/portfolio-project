@@ -25,7 +25,7 @@ SECRET_KEY = ')v%iy0razs5g^b_vv^_ov#oot7ww0d%nr%=ol0r6oum(w$^7yn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '138.197.68.74', 'ryancook.page', 'www.ryancook.page','http://django-env3.eba-iksdzewc.us-west-2.elasticbeanstalk.com/',]
+ALLOWED_HOSTS = ['localhost', '138.197.68.74', 'ryancook.page', 'www.ryancook.page',]
 
 
 # Application definition
@@ -152,7 +152,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 import os
-STATIC_ROOT = 'jobs/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+print(BASE_DIR)
 
 
 MEDIA_URL = '/media/'
