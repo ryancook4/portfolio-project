@@ -1,44 +1,10 @@
 {% extends 'jobs/base.html' %}
 {% block 'body' %}
 
-<!-- Countdown Plugin -->
-<script>  
-  // Set the date we're counting down to  
-  var countDownDate = new Date("May 8, 2021 11:00:00").getTime(); 
-    
-  // Update the count down every 1 second 
-  var x = setInterval(function() {  
-    
-    // Get today's date and time  
-    var now = new Date().getTime(); 
-        
-    // Find the distance between now and the count down date  
-    var distance = countDownDate - now; 
-        
-    // Time calculations for days, hours, minutes and seconds 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));  
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);  
-        
-    // Output the result in an element with id="countdown" 
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "  
-    + minutes + "m " + seconds + "s ";  
-        
-    // If the count down is over, write some text   
-    if (distance < 0) { 
-      clearInterval(x); 
-      document.getElementById("countdown").innerHTML = "EXPIRED";  
-    } 
-  }, 1000); 
-  </script> 
-
-
-
 <main role="main">
   {% load static %}
 
-  <section class="jumbotron text-center">
+  <section id="home" class="jumbotron text-center">
     <div class="container">
       <br>
       <a href="{% url 'home' %}#bio"  style="text-decoration:none; color: #000000">
@@ -58,7 +24,7 @@
     </div>
   </section>
 
-  <br> <br> <br>
+  <br> <br>
   <section id="jobs">
     <br>
     <div class="album py-5 bg-light">
@@ -82,41 +48,192 @@
       {% endfor %}
     </div>
   </section>
+</main>
 
   <br> <br> <br> <br> <br>
+
+    <section id="philo" class="jumbotron text-left">
+      <h2>Philosophy Involvement at ND</h2>
+      <br>
+        <div class="container text-center">
+        <br>
+        <img src="{% static 'CTY.png' %}" height=300> </img>
+        <br> <br>
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" data-target="#ggl">God and the Good Life</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" data-target="#goodclass">The Good Class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" data-target="#minor">Philosophy Minor</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content card-body">
+            <div id="ggl" class="tab-pane active text-left">
+              <ul>
+                <h6 class="text-left"> <b>Fellow/Co-Chair</b></h6>
+                <p class="text-left"> During the first semester of his freshman year, Ryan took ND's "God and the Good Life" introductory philosophy course as a University requirement but grew to love the course.
+                    He began working with the course as a Fellow the following semester and has spent the past 3+ years working to further the course's mission of contemplating life's bigger questions and making philosophy pragmatic to the lives of college students.
+                    Ryan has planned and led dialogue sessions of 10-15 students every Tuesday night in which students practice critical thinking and logical discourse on topics ranging from Kant's categorical imperative to Thanos' moral agenda.
+                    After his second semester with GGL, Ryan undertook the role of Co-Chair of the undergraduate teaching team to work more closely with course instructors on coordinating course logistics and organizing the growing team of course Fellows.
+                </p>
+              </ul>
+              <div class="album py-5 bg-light">
+                <div class="container">
+                  <h4>Related Links</h4>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+                      <div class="card">
+                        <a href="https://godandgoodlife.nd.edu/" style="text-decoration:none; color: #000000">
+                        <div class="card-body">
+                          <img class="card-img-top" src="{% static 'GGL.png' %}"></img>
+                          <p></p>
+                          <h5 class="card-title">God and the Good Life</h5>
+                        </div>
+                      </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="goodclass" class="tab-pane text-left">
+                <ul>
+                    <h6 class="text-left"> <b>Student/Speaker</b></h6>
+                    <p class="text-left">In the Fall '19, Ryan was a student in Notre Dame's first and only module of The Good Class.  Inspired by Michael Schur's hit NBC comedy <i>The Good Place</i>, the course combined TV scripts and reviews with age-old philosophical ideas on morality to examine if TV can make us better people.
+                    Through weekly readings and group dialogues with professors, remote interviews with show consultants, and a luncheon/presentation day with Mike Schur himself, students had the unique opportunity to gain unique insight into <i>The Good Place</i>'s and its impact on socio-cultural ideas of morality during the show's final season.
+                    For their final project in the course, Ryan and Chase collaborated with their high school Theology teacher Tom Healey to design an alumni lecture for seniors in Healey's formative "Christian Manhood" course at St. Ignatius High School in Cleveland.
+                    Chase and Ryan introduced the high school students to the main classical concepts of morality, analyzed an episode of <i>The Good Place</i>, and fielded questions on how their Jesuit high school prepared them for handling important life decisions in college.
+                    </p>
+                  </ul>
+                  <br>
+                  <div class="text-center">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSIHSCleveland%2Fposts%2F2371830426258711&width=500&show_text=true&height=866&appId" width="500" height="866" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                  </div>
+                  <br>
+                  <div class="album py-5 bg-light">
+                    <div class="container">
+                      <h4>Related Links</h4>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+                          <div class="card">
+                            <a href="https://philife.nd.edu/news-blog/blog/how-saint-ignatius-high-schools-the-good-lecture-came-into-being/" style="text-decoration:none; color: #000000">
+                            <div class="card-body">
+                              <img class="card-img-top" src="{% static 'GoodLectureBlog.png' %}"></img>
+                              <p></p>
+                              <h5 class="card-title">The Good Lecture</h5>
+                            </div>
+                          </a>
+                          </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-stretch" style="max-width: 300; min-width: 300;">
+                          <div class="card">
+                            <a href="https://www.vulture.com/2019/11/the-good-place-college-class-mike-schur.html" style="text-decoration:none; color: #000000">
+                            <div class="card-body">
+                              <img class="card-img-top" src="{% static 'GoodClassVulture.png' %}"></img>
+                              <p></p>
+                              <h5 class="card-title">The Good Class</h5>
+                            </div>
+                          </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <div id="minor" class="tab-pane text-left">
+                <ul>
+                    <h6 class="text-left"> <b>Student</b></h6>
+                    <p class="text-left">Ryan declared a Philosophy minor in Spring '18 and has spent the past few years improving his logical reasoning, writing long-form arguments, and stealing the department's coffee during office hours.
+                        Inspired by his experiences in "History of Modern Philosophy" and "The Good Class", Ryan finished off his minor in Fall '20 with a "Philosophy and Film" course that combined high level theory of perception and self with the technical aspects and development of film during the 20th century.
+                        Some of Ryan's papers for these classes can be found below.
+                    </p>
+                </ul>
+                <br>
+                    <div class="text-left">
+                        <ul>
+                            <h5><i>History of Modern Philosophy</i></h5>
+                                <input type="button" class="btn btn-sm btn-outline-primary my-2" value="Hume's Theory of Perception" onclick="window.open('hist_of_modern')"></input>
+                                <br><br>
+                            <h5><i>Ancient and Medieval Philosophy</i></h5>
+                                <input type="button" class="btn btn-sm btn-outline-primary my-2" value="Aristotlelian Forms" onclick="window.open('disputatio')">
+                                <br><br>
+                            <h5><i>Philosophy and Film</i></h5>
+                                <input type="button" class="btn btn-sm btn-outline-primary my-2" value="Bazinian Analysis of Hitchcock's Vertigo" onclick="window.open('pf_paper2')">
+                                <input type="button" class="btn btn-sm btn-outline-primary my-2" value="Kupfer's Morality in Television and Film" onclick="window.open('pf_final')">
+                                <br><br>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+<br> <br> <br> <br> <br>
+
+
   <section id="bio" class="jumbotron text-left">
     <div class="container">
       <h3>About Ryan</h3>
       <br>
-      <h6>Bio</h6>
-      <br> <br>
-      <h6>Interests</h6>
       <div class="card text-center">
         <div class="card-header">
             <ul class="nav nav-pills card-header-pills nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#football">Football</a>
+                    <a class="nav-link active" data-toggle="tab" data-target="#fisher">Fisher</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#fisher">Fisher</a>
+                    <a class="nav-link" data-toggle="tab" data-target="#football">Football</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#music">Music</a>
+                <a class="nav-link" data-toggle="tab" data-target="#music">Music</a>
             </li>
             </ul>
         </div>
         <div class="tab-content card-body">
-            <div id="football" class="tab-pane active">
-              <img src="{% static 'NDStadium.png' %}" height=300 style="max-width: 90%;"> </img>
-              <p>Some text</p>
-            </div>
-            <div id="fisher" class="tab-pane">
-              <img src="{% static 'FisherHall.png' %}" height=300 style="max-width: 90%;"> </img>
+          <div id="fisher" class="tab-pane active">
+            <img src="{% static 'FisherHall.png' %}" height=300 style="max-width: 90%;"> </img>
+            <ul class="text-left">
+              <br>
+              <h6 class="text-center">Countdown to the 25th Annual Fisher Regatta</h6>
               <h3 id="countdown" class="text-center" style="color: green;"></h3>
-              <p>Fisher Regatta</p>
+              <br>
+              <p>In accordance with ND tradition, Ryan has spent his entire college career living in the same dorm, Fisher Hall, which was built as expansionary housing afer WWII and has barely been renovated since.
+                He is involved in the dorm's weekly section sports, neighborhood tutoring program, liturgical band, and is serving as a Resident Assistant during his senior year.  
+                Aside from the incredible community, Ryan's favorite aspect of Fisher Hall is the Fisher Regatta, an event in which students race homemade boats across St. Mary's Lake in support of St. Adalbert School on the west side of South Bend.
+                Since last year's event was cancelled due to the pandemic, the Regatta needs more help than ever this spring.  Please check out the Fisher Regatta Facebook page and consider donating to its GoFundMe!
+              </p>
+              <div class="btn-group-justified text-center">
+                <a href="https://www.facebook.com/FisherRegatta/" class="btn btn-sm btn-outline-success my-2">Facebook</a>
+                <a href="https://www.gofundme.com/f/fisher-regatta-for-st-adalberts?fbclid=IwAR2DSl3tn2t7eTUpTb7rh2_BJLPO-9iWlFG5CKD3a0vSKNci7xLMY41Qxa4" class="btn btn-sm btn-outline-success my-2">GoFundMe</a>
+              </div>
+            </ul>
+          </div>
+            <div id="football" class="tab-pane">
+              <img src="{% static 'NDStadium.png' %}" height=300 style="max-width: 90%;"> </img>
+              <ul class="text-left">
+                <br>
+                <p>Ryan is a huge fan of both the Notre Dame and Cleveland Browns football teams.  
+                  On weekends in the fall, he enjoys tailgating ND home games with friends and then streaming the Browns game while catching up on homework.  
+                  As a junior, Ryan worked as a data analyst with the Defensive Backs coaches, and he has not missed a second of home football games during his four years.</p>
+              </ul>
             </div>
             <div id="music" class="tab-pane">
-              <iframe src="https://open.spotify.com/embed/playlist/2thU2FKjk1O4nFpuLjMEPt" height="225" style="max-width: 90%;" width="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <iframe src="https://open.spotify.com/embed/playlist/2thU2FKjk1O4nFpuLjMEPt" height="325" style="max-width: 90%; border: 4px solid grey;" width="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <ul class="text-left">
+                <br>
+                <p> When he is not in school, Ryan enjoys playing electric guitar, beating his brothers in Madden '20 on Xbox, and sitting down at his computer to drink coffee and code.
+                  He is a huge fan of alternative, indie, and folk rock and has developed the ability to read school assignments while listening to his favorite artists on Spotify.
+                  Check out music from some of his favorite artists above!
+                </p>
+              </ul>
             </div>
         </div>
       </div>
@@ -134,7 +251,6 @@
   </div>
 
 </section>
-</main>
 
 
 
