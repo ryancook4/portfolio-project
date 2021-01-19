@@ -27,35 +27,35 @@ from django.shortcuts import render
 from django.http import FileResponse, Http404
 def resume(request):
     try:
-        return FileResponse(open('jobs/static/RyanACookResume1-16-21.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static/RyanACookResume1-16-21.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 
 
 def hist_of_modern(request):
     try:
-        return FileResponse(open('jobs/static/HistoryOfModernPaper2.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static/HistoryOfModernPaper2.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 
 
 def disputatio(request):
     try:
-        return FileResponse(open('jobs/static/DisputatioBachelorSummary.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static/DisputatioBachelorSummary.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 
 
 def pf_paper2(request):
     try:
-        return FileResponse(open('jobs/static/CookPhiloAndFilmPaper2.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static/CookPhiloAndFilmPaper2.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 
 
 def pf_final_paper(request):
     try:
-        return FileResponse(open('jobs/static/Cook_PF_Final_Paper.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static/Cook_PF_Final_Paper.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404('not found')
 
